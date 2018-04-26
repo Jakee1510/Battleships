@@ -139,6 +139,10 @@ For i  = 1 To 5
         EndLoadingScreen(width, height)
     End Sub
 
+''' <summary>
+''' Load screen's map, background and referesh screen 
+''' </summary>
+
     Private Sub ShowLoadingScreen()
         _Background = SwinGame.LoadBitmap(SwinGame.PathToResource("SplashBack.png", ResourceKind.BitmapResource))
         SwinGame.DrawBitmap(_Background, 0, 0)
@@ -151,6 +155,8 @@ For i  = 1 To 5
 
 		_LoaderFull = SwinGame.LoadBitmap(SwinGame.PathToResource("loader_full.png", ResourceKind.BitmapResource))
 		_LoaderEmpty = SwinGame.LoadBitmap(SwinGame.PathToResource("loader_empty.png", ResourceKind.BitmapResource))
+	
+	'SwinGame intro sound effect amd background
 
         PlaySwinGameIntro()
     End Sub
