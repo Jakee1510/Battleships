@@ -239,6 +239,7 @@ Module UtilityFunctions
         _Animations.Add(s)
     End Sub
 
+            'Update animations
     Public Sub UpdateAnimations()
         Dim ended As New List(Of Sprite)()
         For Each s As Sprite In _Animations
@@ -247,7 +248,7 @@ Module UtilityFunctions
                 ended.Add(s)
             End If
         Next
-
+            'For loop to update animations
         For Each s As Sprite In ended
             _Animations.Remove(s)
             SwinGame.FreeSprite(s)
@@ -260,6 +261,7 @@ Module UtilityFunctions
         Next
     End Sub
 
+'Putting animations in sequence
     Public Sub DrawAnimationSequence()
         Dim i as Integer
 For i  = 1 To ANIMATION_CELLS * FRAMES_PER_CELL
