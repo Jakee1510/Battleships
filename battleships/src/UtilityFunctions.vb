@@ -172,7 +172,7 @@ Module UtilityFunctions
     Private _message As String
 
     ''' <summary>
-    ''' The message to display
+            ''' Display the message to screen
     ''' </summary>
     ''' <value>The message to display</value>
     ''' <returns>The message to display</returns>
