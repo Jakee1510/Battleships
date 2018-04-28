@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 // '' <summary>
 // '' AIHardPlayer is a type of player. This AI will know directions of ships
 // '' when it has found 2 ship tiles and will try to destroy that ship. If that ship
@@ -5,7 +6,7 @@
 // '' the AI knows it has hit multiple ships. Then will try to destoy all around tiles
 // '' that have been hit.
 // '' </summary>
-public class AIHardPlayer {
+public class AIHardPlayer : AIPlayer {
     
     // '' <summary>
     // '' Target allows the AI to know more things, for example the source of a

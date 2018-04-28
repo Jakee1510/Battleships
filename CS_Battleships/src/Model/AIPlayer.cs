@@ -66,7 +66,23 @@ public abstract class AIPlayer : Player
 		{
 			return @this == null || other == null || @this.Row != other.Row || @this.Column != other.Column;
 		}
-	}
+
+        // thank you stackoverflow https://stackoverflow.com/questions/38676380/warning-object-defines-operator-or-operator-but-does-not-override-object
+        public override bool Equals(object o)
+        {
+            if (o == null)
+                return false;
+
+            var second = o as Pair<T1>;
+
+            return second != null && First == second.First;
+        }
+
+        public override int GetHashCode()
+        {
+            return First;
+        }
+    }
 
 
 	public AIPlayer(BattleShipsGame game) : base(game)

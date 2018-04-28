@@ -4,6 +4,8 @@
 // '' </summary>
 public interface ISeaGrid {
     
-    int Width {
-    }
+    // int Width {}
+    // int Height {}
+    // event Changed {}
+    // const prop Item(int row, int column);
 }

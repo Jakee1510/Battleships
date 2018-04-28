@@ -1,5 +1,6 @@
 using System.IO;
 using SwinGameSDK;
+using System.Collections.Generic;
 // '' <summary>
 // '' Controls displaying and collecting high score data.
 // '' </summary>

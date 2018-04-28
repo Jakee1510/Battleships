@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 // '' <summary>
 // '' Player has its own _PlayerGrid, and can see an _EnemyGrid, it can also check if
 // '' all ships are deployed and if all ships are detroyed. A Player can also attach.
