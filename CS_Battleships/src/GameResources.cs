@@ -1,7 +1,8 @@
 using SwinGameSDK;
 using System.Collections.Generic;
 public class GameResources {
-    
+
+    // Imports fonts to be used in the game
     private static void LoadFonts() {
         GameResources.NewFont("ArialLarge", "arial.ttf", 80);
         GameResources.NewFont("Courier", "cour.ttf", 14);
@@ -9,6 +10,7 @@ public class GameResources {
         GameResources.NewFont("Menu", "ffaccess.ttf", 8);
     }
     
+    // Imports images to be used in the game
     private static void LoadImages() {
         // Backgrounds
         GameResources.NewImage("Menu", "main_page.jpg");
@@ -21,6 +23,7 @@ public class GameResources {
         GameResources.NewImage("PlayButton", "deploy_play_button.png");
         GameResources.NewImage("RandomButton", "deploy_randomize_button.png");
         // Ships
+        // Since ships use predictable names, find them using a loop
         int i;
         for (i = 1; (i <= 5); i++) {
             GameResources.NewImage(("ShipLR" + i), ("ship_deploy_horiz_" 
@@ -34,6 +37,7 @@ public class GameResources {
         GameResources.NewImage("Splash", "splash.png");
     }
     
+    // Imports sounds to be used into the game
     private static void LoadSounds() {
         GameResources.NewSound("Error", "error.wav");
         GameResources.NewSound("Hit", "hit.wav");
@@ -44,6 +48,7 @@ public class GameResources {
         GameResources.NewSound("Lose", "lose.wav");
     }
     
+    // Background music, to be played constantly, to the point of annoyance
     private static void LoadMusic() {
         GameResources.NewMusic("Background", "horrordrone.mp3");
     }
@@ -83,7 +88,9 @@ public class GameResources {
     public static Music GameMusic(string music) {
         return _Music(music);
     }
-    
+
+    // Fill dictionaries with the files that were imported
+    // Also, should these not have closing > on the end? Well, if it compiles... flagging as possible issue on the GitHub repo FIXME?
     private Dictionary<string, Bitmap> _Images = new Dictionary<string, Bitmap>();
     
     private Dictionary<string, Font> _Fonts = new Dictionary<string, Font>();
@@ -92,6 +99,7 @@ public class GameResources {
     
     private Dictionary<string, Music> _Music = new Dictionary<string, Music>();
     
+    // Allocate memory for resources, prepare game
     private Bitmap _Background;
     
     private Bitmap _Animation;
