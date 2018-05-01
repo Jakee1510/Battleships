@@ -15,7 +15,7 @@ public enum AIOption
     Medium,
     
     /// <summary>
-    /// As medium, but removes shots once it misses
+    /// Same as medium, but aims for targets around hits
     /// </summary>
     Hard
 }

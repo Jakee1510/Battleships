@@ -2,7 +2,7 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug-Windows</Configuration>
-    <ProjectGuid>{103aa3e8-de08-4f0e-9c24-246720c5beb8}</ProjectGuid>
+    <ProjectGuid>{103AA3E8-DE08-4F0E-9C24-246720C5BEB8}</ProjectGuid>
     <RootNamespace>MyGame</RootNamespace>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
     <AssemblyName>MyGame</AssemblyName>
@@ -46,6 +46,7 @@
     <Compile Include="src\GameState.cs" />
     <Compile Include="src\HighScoreController.cs" />
     <Compile Include="src\MenuController.cs" />
+    <Compile Include="src\Model\AIEasyPlayer.cs" />
     <Compile Include="src\Model\AIHardPlayer.cs" />
     <Compile Include="src\Model\AIMediumPlayer.cs" />
     <Compile Include="src\Model\AIOption.cs" />
