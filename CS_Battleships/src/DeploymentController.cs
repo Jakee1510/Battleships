@@ -52,7 +52,7 @@ sealed class DeploymentController
         }
         if (SwinGame.KeyTyped(KeyCode.vk_LEFT) || SwinGame.KeyTyped(KeyCode.vk_RIGHT))
         {
-            _currentDirection = Direction.LeftRight;
+            _currentDirection = Direction.UpDown;
         }
         
         if (SwinGame.KeyTyped(KeyCode.vk_r))
