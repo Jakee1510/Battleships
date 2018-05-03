@@ -14,15 +14,15 @@ sealed class MenuController
     /// <remarks>
     /// These are the text captions for the menu items.
     /// </remarks>
-    private readonly static string[][] _menuStructure = new string[][] {new string[] {"PLAY", "SETUP", "SCORES", "QUIT"}, 
-        new string[] {"RETURN", "SURRENDER", "QUIT"}, 
+    private readonly static string[][] _menuStructure = new string[][] {new string[] {"PLAY", "SETUP", "SCORES", "MUTE", "QUIT"}, 
+        new string[] {"RETURN", "SURRENDER", "MUTE", "QUIT" }, 
         new string[] {"EASY", "MEDIUM", "HARD"}};
     
     private const int MENU_TOP = 575;
     private const int MENU_LEFT = 30;
     private const int MENU_GAP = 0;
-    private const int BUTTON_WIDTH = 75;
-    private const int BUTTON_HEIGHT = 15;
+    private const int BUTTON_WIDTH = 120;
+    private const int BUTTON_HEIGHT = 50;
     private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
     private const int TEXT_OFFSET = 0;
     
@@ -33,8 +33,11 @@ sealed class MenuController
     private const int MAIN_MENU_PLAY_BUTTON = 0;
     private const int MAIN_MENU_SETUP_BUTTON = 1;
     private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
-    private const int MAIN_MENU_QUIT_BUTTON = 3;
+    private const int MAIN_MENU_MUTE_BUTTON = 3;
+    private const int MAIN_MENU_QUIT_BUTTON = 4;
     
+
+
     private const int SETUP_MENU_EASY_BUTTON = 0;
     private const int SETUP_MENU_MEDIUM_BUTTON = 1;
     private const int SETUP_MENU_HARD_BUTTON = 2;
@@ -42,8 +45,11 @@ sealed class MenuController
     
     private const int GAME_MENU_RETURN_BUTTON = 0;
     private const int GAME_MENU_SURRENDER_BUTTON = 1;
-    private const int GAME_MENU_QUIT_BUTTON = 2;
+    private const int GAME_MENU_MUTE_BUTTON = 2;
+    private const int GAME_MENU_QUIT_BUTTON = 3;
     
+
+
     private readonly static Color MENU_COLOR = SwinGame.RGBAColor((byte) 2, (byte) 167, (byte) 252, (byte) 255);
     private readonly static Color HIGHLIGHT_COLOR = SwinGame.RGBAColor((byte) 1, (byte) 57, (byte) 86, (byte) 255);
     
@@ -124,7 +130,7 @@ sealed class MenuController
     public static void DrawMainMenu()
     {
         //Clears the Screen to Black
-        //SwinGame.DrawText("Main Menu", Color.White, GameFont("ArialLarge"), 50, 50)
+        //SwinGame.DrawText("Main Menu", Color.White, GameFont("ArialLarge"), 50, 50);
         
         DrawButtons(MAIN_MENU);
     }
@@ -194,6 +200,11 @@ sealed class MenuController
             toDraw.Height = BUTTON_HEIGHT;
             SwinGame.DrawTextLines(System.Convert.ToString(_menuStructure[menu][i]), MENU_COLOR, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, toDraw);
             
+            if (IsMouseOverMenu(i, level, xOffset))
+            {
+                SwinGame.DrawTextLines(System.Convert.ToString(_menuStructure[menu][i]), Color.Yellow, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, toDraw);
+            }
+
             if (SwinGame.MouseDown(MouseButton.LeftButton) && IsMouseOverMenu(i, level, xOffset))
             {
                 SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -267,6 +278,13 @@ sealed class MenuController
             case MAIN_MENU_QUIT_BUTTON:
                 GameController.EndCurrentState();
                 break;
+             case MAIN_MENU_MUTE_BUTTON:
+                if (GameController.MuteCheck == false)
+                {
+                    GameController.MuteCheck = true;
+                }
+                else { GameController.MuteCheck = false; }
+                break;
         }
     }
     
@@ -309,6 +327,13 @@ sealed class MenuController
                 break;
             case GAME_MENU_QUIT_BUTTON:
                 GameController.AddNewState(GameState.Quitting);
+                break;
+            case GAME_MENU_MUTE_BUTTON:
+                if (GameController.MuteCheck == false)
+                {
+                    GameController.MuteCheck = true;
+                }
+                else { GameController.MuteCheck = false; }
                 break;
         }
     }
