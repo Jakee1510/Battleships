@@ -21,8 +21,8 @@ sealed class MenuController
     private const int MENU_TOP = 575;
     private const int MENU_LEFT = 30;
     private const int MENU_GAP = 0;
-    private const int BUTTON_WIDTH = 120;
-    private const int BUTTON_HEIGHT = 50;
+    private const int BUTTON_WIDTH = 125;
+    private const int BUTTON_HEIGHT = 45;
     private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
     private const int TEXT_OFFSET = 0;
     
@@ -202,7 +202,7 @@ sealed class MenuController
             
             if (IsMouseOverMenu(i, level, xOffset))
             {
-                SwinGame.DrawTextLines(System.Convert.ToString(_menuStructure[menu][i]), Color.Yellow, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, toDraw);
+                SwinGame.DrawTextLines(System.Convert.ToString(_menuStructure[menu][i]), Color.Red, Color.Black, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, toDraw);
             }
 
             if (SwinGame.MouseDown(MouseButton.LeftButton) && IsMouseOverMenu(i, level, xOffset))
