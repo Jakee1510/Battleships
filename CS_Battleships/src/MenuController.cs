@@ -14,14 +14,14 @@ sealed class MenuController
     /// <remarks>
     /// These are the text captions for the menu items.
     /// </remarks>
-    private readonly static string[][] _menuStructure = new string[][] {new string[] {"PLAY", "SETUP", "SCORES", "MUTE", "QUIT"}, 
-        new string[] {"RETURN", "SURRENDER", "MUTE", "QUIT" }, 
+    private readonly static string[][] _menuStructure = new string[][] {new string[] {"PLAY", "SETUP", "SCORES", "QUIT"}, 
+        new string[] {"RETURN", "SURRENDER", "QUIT" }, 
         new string[] {"EASY", "MEDIUM", "HARD"}};
     
     private const int MENU_TOP = 575;
     private const int MENU_LEFT = 30;
     private const int MENU_GAP = 0;
-    private const int BUTTON_WIDTH = 125;
+    private const int BUTTON_WIDTH = 80;
     private const int BUTTON_HEIGHT = 45;
     private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
     private const int TEXT_OFFSET = 0;
@@ -33,8 +33,7 @@ sealed class MenuController
     private const int MAIN_MENU_PLAY_BUTTON = 0;
     private const int MAIN_MENU_SETUP_BUTTON = 1;
     private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
-    private const int MAIN_MENU_MUTE_BUTTON = 3;
-    private const int MAIN_MENU_QUIT_BUTTON = 4;
+    private const int MAIN_MENU_QUIT_BUTTON = 3;
     
 
 
@@ -45,8 +44,7 @@ sealed class MenuController
     
     private const int GAME_MENU_RETURN_BUTTON = 0;
     private const int GAME_MENU_SURRENDER_BUTTON = 1;
-    private const int GAME_MENU_MUTE_BUTTON = 2;
-    private const int GAME_MENU_QUIT_BUTTON = 3;
+    private const int GAME_MENU_QUIT_BUTTON = 2;
     
 
 
@@ -278,13 +276,6 @@ sealed class MenuController
             case MAIN_MENU_QUIT_BUTTON:
                 GameController.EndCurrentState();
                 break;
-             case MAIN_MENU_MUTE_BUTTON:
-                if (GameController.MuteCheck == false)
-                {
-                    GameController.MuteCheck = true;
-                }
-                else { GameController.MuteCheck = false; }
-                break;
         }
     }
     
@@ -327,13 +318,6 @@ sealed class MenuController
                 break;
             case GAME_MENU_QUIT_BUTTON:
                 GameController.AddNewState(GameState.Quitting);
-                break;
-            case GAME_MENU_MUTE_BUTTON:
-                if (GameController.MuteCheck == false)
-                {
-                    GameController.MuteCheck = true;
-                }
-                else { GameController.MuteCheck = false; }
                 break;
         }
     }
