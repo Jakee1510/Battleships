@@ -213,7 +213,7 @@ public class SeaGrid : ISeaGrid
             //tile is already hit
             if (_GameTiles[row, col].Shot)
             {
-                return new AttackResult(ResultOfAttack.ShotAlready, "have already attacked [" + System.Convert.ToString(col) + "," + System.Convert.ToString(row) + "]!", row, col);
+                return new AttackResult(ResultOfAttack.ShotAlready, "have already attacked [" + System.Convert.ToString(col + 1) + "," + System.Convert.ToString(row + 1) + "]!", row, col);
             }
             
             _GameTiles[row, col].Shoot();
