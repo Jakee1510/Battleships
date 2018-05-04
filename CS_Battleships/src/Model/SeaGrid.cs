@@ -229,7 +229,7 @@ public class SeaGrid : ISeaGrid
             {
                 _GameTiles[row, col].Shot = true;
                 _ShipsKilled++;
-                return new AttackResult(ResultOfAttack.Destroyed, _GameTiles[row, col].Ship, "destroyed the enemy's", row, col);
+                return new AttackResult(ResultOfAttack.Destroyed, _GameTiles[row, col].Ship, "destroyed {0}", row, col);
             }
             
             //else hit but not destroyed

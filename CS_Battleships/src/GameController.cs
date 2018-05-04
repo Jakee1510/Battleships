@@ -188,11 +188,11 @@ public sealed class GameController
         
         if (isHuman)
         {
-            UtilityFunctions.Message = "You " + result.ToString();
+            UtilityFunctions.Message = "You " + String.Format(result.ToString(), "the AI's");
         }
         else
         {
-            UtilityFunctions.Message = "The AI " + result.ToString();
+           UtilityFunctions.Message = "The AI " + String.Format(result.ToString(), "your");
         }
         
         if (result.Value == ResultOfAttack.Destroyed)
